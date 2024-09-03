@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ autor and 'Editar Autor' or 'Adicionar Autor' }}{% endblock %}
+
+{% block header %}{{ autor and 'Editar Autor' or 'Adicionar Autor' }}{% endblock %}
+
+{% block content %}
+    <form action="" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" value="{{ autor and autor.nome or '' }}" required>
+        <br>
+        <button type="submit">{{ autor and 'Salvar' or 'Adicionar' }}</button>
+    </form>
+    <br>
+    <a href="{{ url_for('listar_autores') }}">Retornar à Lista de Autores</a>
+{% endblock %}

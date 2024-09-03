@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Livros{% endblock %}
+
+{% block header %}Lista de Livros{% endblock %}
+
+{% block content %}
+    <h2>Lista de Livros</h2>
+    <ul>
+        {% for livro in livros %}
+        <li>{{ livro.titulo }} ({{ livro.ano }}) - <a href="{{ url_for('editar_livro', id=livro.id) }}">Editar</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('adicionar_livro') }}">Adicionar Livro</a>
+    <br>
+    <a href="{{ url_for('index') }}">Retornar à Página Inicial</a>
+{% endblock %}

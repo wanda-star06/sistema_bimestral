@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ genero and 'Editar Gênero' or 'Adicionar Gênero' }}{% endblock %}
+
+{% block header %}{{ genero and 'Editar Gênero' or 'Adicionar Gênero' }}{% endblock %}
+
+{% block content %}
+    <form action="" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" value="{{ genero and genero.nome or '' }}" required>
+        <br>
+        <button type="submit">{{ genero and 'Salvar' or 'Adicionar' }}</button>
+    </form>
+    <br>
+    <a href="{{ url_for('listar_generos') }}">Retornar à Lista de Gêneros</a>
+{% endblock %}

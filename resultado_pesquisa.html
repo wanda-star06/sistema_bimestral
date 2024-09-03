@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Resultados da Pesquisa{% endblock %}
+
+{% block header %}Resultados da Pesquisa{% endblock %}
+
+{% block content %}
+    <h2>Resultados da Pesquisa</h2>
+    <ul>
+        {% for livro in livros %}
+        <li>{{ livro.titulo }} ({{ livro.ano }}) - <a href="{{ url_for('editar_livro', id=livro.id) }}">Editar</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Retornar à Página Inicial</a>
+{% endblock %}
